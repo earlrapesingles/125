@@ -1,0 +1,180 @@
+{
+  "parser": {
+    "threads": 100,
+    "pages": 10,
+    "filter": true,
+    "google": true,
+    "googlemobile": false,
+    "googleproxyless": true,
+    "googleapi": false,
+    "bing": false,
+    "yahoo": false,
+    "ask": false,
+    "startpage": false,
+    "yandex": false,
+    "timeouts": 20,
+    "graphs": true
+  },
+  "exploiter": {
+    "threads": 100,
+    "workers": 25,
+    "level": 3,
+    "intensity": 5,
+    "heuristics": true,
+    "vulncheck": false,
+    "best": false,
+    "solve_waf": true,
+    "extensive_fingerprinting": true,
+    "techniques": {
+      "error": true,
+      "union": true,
+      "boolean": false,
+      "time": false,
+      "inline": true,
+      "stacked": false
+    },
+    "dbms": {
+      "mysql": true,
+      "mssql": true,
+      "oracle": true,
+      "pgsql": true,
+      "access": true,
+      "db2": true,
+      "firebird": true,
+      "maxdb": true,
+      "sqlite": true,
+      "sybase": true,
+      "informix": true,
+      "hsqldb": true,
+      "h2": true,
+      "monetdb": true,
+      "derby": true,
+      "vertica": true,
+      "mckoi": true,
+      "presto": true,
+      "altibase": true,
+      "mimersql": true,
+      "cratedb": true,
+      "cubrid": true,
+      "cache": true,
+      "extremedb": true,
+      "frontbase": true,
+      "raima": true,
+      "virtuoso": true
+    },
+    "timeouts": 35,
+    "graphs": false
+  },
+  "vuln_scanner": {
+    "threads": 300,
+    "timeouts": 30
+  },
+  "dumper": {
+    "threads": 80,
+    "workers": 30,
+    "targeting": true,
+    "dump_partial_match": false,
+    "dump_table_on_hit": false,
+    "filter_blank_rows": true,
+    "blacklist": [
+      "id",
+      "time",
+      "last",
+      "date",
+      "allow",
+      "res",
+      "text",
+      "port",
+      "sql",
+      "ip",
+      "permission",
+      "superuser"
+    ],
+    "whitelist": [
+      {
+        "name": "Primary",
+        "enabled": true,
+        "index": 0,
+        "data": [
+          "user",
+          "mail",
+          "login"
+        ]
+      },
+      {
+        "name": "Secondary",
+        "enabled": true,
+        "index": 1,
+        "data": [
+          "pass",
+          "pwd",
+          "hash",
+          "md5",
+          "pssw"
+        ]
+      }
+    ],
+    "minimum_rows": 0,
+    "timeouts": 35,
+    "delimiter": ":",
+    "graphs": false,
+    "solve_waf": true
+  },
+  "dorkutils": {
+    "generator": {
+      "limit": 50000,
+      "enable_limit": true,
+      "patterns": [
+        {
+          "pattern": "ext:(PT) (KW1)* (KW2) inurl:?(PP)=",
+          "enabled": true
+        }
+      ],
+      "tokens": [
+        {
+          "name": "kw",
+          "slug": "(KW)",
+          "path": "kw.txt"
+        },
+        {
+          "name": "kw1",
+          "slug": "(KW1)",
+          "path": "kw1.txt"
+        },
+        {
+          "name": "kw2",
+          "slug": "(KW2)",
+          "path": "kw2.txt"
+        },
+        {
+          "name": "pp",
+          "slug": "(PP)",
+          "path": "pp.txt"
+        },
+        {
+          "name": "pp1",
+          "slug": "(PP1)",
+          "path": "pp1.txt"
+        },
+        {
+          "name": "pp2",
+          "slug": "(PP2)",
+          "path": "pp2.txt"
+        },
+        {
+          "name": "de",
+          "slug": "(DE)",
+          "path": "de.txt"
+        },
+        {
+          "name": "pt",
+          "slug": "(PT)",
+          "path": "pt.txt"
+        }
+      ]
+    },
+    "keywordgen": {
+      "threads": 100
+    }
+  }
+}
